@@ -1,0 +1,7 @@
+{
+  "name": "Markdown-editor-for-mobile",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "react"
+}
