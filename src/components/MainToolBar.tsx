@@ -1,16 +1,15 @@
 import React  from 'react';
-import { IonIcon, IonToolbar, IonButtons, IonMenuButton, IonButton, IonTitle, IonHeader } from '@ionic/react';
+import { IonIcon, IonToolbar, IonButtons, IonMenuButton, IonButton, IonTitle, IonHeader, IonMenuToggle } from '@ionic/react';
 import { star } from 'ionicons/icons';
+import SideMenu from '../pages/SideMenu'
 
-interface MainTabsProps { }
-
-const MainTabs: React.FC<MainTabsProps> = () => {
+const MainToolBar: React.FC = () => {
   return (
     <IonHeader>
       <IonToolbar>
         {/*<IonTitle>Blank</IonTitle>*/}
         <IonButtons slot="start">
-          <IonMenuButton autoHide={false} />
+          <IonMenuToggle autoHide={false} menu="sideMenu" />
         </IonButtons>
         <IonButtons slot="secondary">
           <IonButton>
@@ -23,4 +22,4 @@ const MainTabs: React.FC<MainTabsProps> = () => {
   );
 };
 
-export default MainTabs;
+export default MainToolBar;

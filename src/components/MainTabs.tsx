@@ -1,7 +1,7 @@
 import React  from 'react';
 import { IonTabs, IonRouterOutlet, IonTabBar, IonTabButton, IonIcon, IonLabel, IonBadge } from '@ionic/react';
-import { Route, Redirect } from 'react-router';
-import { calendar, personCircle, map } from 'ionicons/icons';
+import { Redirect } from 'react-router';
+import { newspaperOutline, createOutline, map } from 'ionicons/icons';
 
 interface MainTabsProps { }
 
@@ -27,14 +27,14 @@ const MainTabs: React.FC<MainTabsProps> = () => {
       </IonRouterOutlet>
 
       <IonTabBar slot="bottom">
-        <IonTabButton tab="schedule">
-          <IonIcon icon={calendar} />
-          <IonLabel>Schedule</IonLabel>
+        <IonTabButton tab="blogPosts">
+        <IonIcon icon={newspaperOutline} />
+          <IonLabel>Posts</IonLabel>
         </IonTabButton>
 
-        <IonTabButton tab="speakers">
-          <IonIcon icon={personCircle} />
-          <IonLabel>Speakers</IonLabel>
+        <IonTabButton tab="Writing">
+          <IonIcon icon={createOutline} />
+          <IonLabel>Writing</IonLabel>
         </IonTabButton>
 
         <IonTabButton tab="map">
