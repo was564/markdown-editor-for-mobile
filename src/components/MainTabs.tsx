@@ -1,48 +1,47 @@
 import React  from 'react';
 import { IonTabs, IonRouterOutlet, IonTabBar, IonTabButton, IonIcon, IonLabel, IonBadge } from '@ionic/react';
-import { Redirect } from 'react-router';
-import { newspaperOutline, createOutline, map } from 'ionicons/icons';
+import { Redirect, Route } from 'react-router-dom';
+import { newspaperOutline, createOutline, map, personOutline } from 'ionicons/icons';
+import { IonReactRouter } from '@ionic/react-router';
+import Tab1 from '../pages/Tab1';
+import Tab2 from '../pages/Tab2';
+import Tab3 from '../pages/Tab3';
 
-interface MainTabsProps { }
-
-const MainTabs: React.FC<MainTabsProps> = () => {
-
+const MainTabs: React.FC = () => {
   return (
-    <IonTabs>
-      <IonRouterOutlet>
-        <Redirect exact path="/tabs" to="/tabs/schedule" />
-        {/*
-          Using the render method prop cuts down the number of renders your components will have due to route changes.
-          Use the component prop when your component depends on the RouterComponentProps passed in automatically.
-        */}
-        {/*
-        <Route path="/tabs/schedule" render={() => <SchedulePage />} exact={true} />
-        <Route path="/tabs/speakers" render={() => <SpeakerList />} exact={true} />
-        <Route path="/tabs/speakers/:id" component={SpeakerDetail} exact={true} />
-        <Route path="/tabs/schedule/:id" component={SessionDetail} />
-        <Route path="/tabs/speakers/sessions/:id" component={SessionDetail} />
-        <Route path="/tabs/map" render={() => <MapView />} exact={true} />
-        <Route path="/tabs/about" render={() => <About />} exact={true} />
-        */}
-      </IonRouterOutlet>
+    <IonReactRouter>
+      <IonTabs>
+        <IonRouterOutlet>
+          <Route exact path="/tabs/tab1">
+            <Tab1 />
+          </Route>
+          <Route exact path="/tabs/tab2">
+            <Tab2 />
+          </Route>
+          <Route exact path="/tabs/tab3">
+            <Tab3 />
+          </Route>
+          <Redirect exact path="/tabs" to="/tabs/tab1" />
+        </IonRouterOutlet>
 
-      <IonTabBar slot="bottom">
-        <IonTabButton tab="blogPosts">
-        <IonIcon icon={newspaperOutline} />
-          <IonLabel>Posts</IonLabel>
-        </IonTabButton>
+        <IonTabBar slot="bottom">
+          <IonTabButton tab="tab1" href="/tabs/tab1">
+            <IonIcon icon={newspaperOutline} />
+            <IonLabel>Posts</IonLabel>
+          </IonTabButton>
 
-        <IonTabButton tab="Writing">
-          <IonIcon icon={createOutline} />
-          <IonLabel>Writing</IonLabel>
-        </IonTabButton>
+          <IonTabButton tab="tab2" href="/tabs/tab2">
+            <IonIcon icon={createOutline} />
+            <IonLabel>Writing</IonLabel>
+          </IonTabButton>
 
-        <IonTabButton tab="map">
-          <IonIcon icon={map} />
-          <IonLabel>Map</IonLabel>
-        </IonTabButton>
-      </IonTabBar>
-    </IonTabs>
+          <IonTabButton tab="tab3" href="/tabs/tab3">
+            <IonIcon icon={personOutline} />
+            <IonLabel>My</IonLabel>
+          </IonTabButton>
+        </IonTabBar>
+      </IonTabs>
+    </IonReactRouter>
   );
 };
 
